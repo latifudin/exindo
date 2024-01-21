@@ -1213,14 +1213,13 @@ h6 {
 /*--------------------------------------------------------------
 # Carousel
 --------------------------------------------------------------*/
-.carousel-item{
-  height: 300px;
-  margin-top: 7%;
+.slide{
+  margin-top: 100px;
 }
-.img-fluid{
+.carousel-inner img{
+  width: 100%;
+  height: auto;
   border-radius: 25px;
-  width: auto;
-  height: 100%;
 }
 .img-thumbnail{
   width: 400px;

@@ -34,15 +34,34 @@
 </style>
 
 <script>
-    filterSelection("all")
+    // Initialize with all products displayed
+    filterSelection("all");
 
     function filterSelection(c) {
         var x, i;
         x = document.getElementsByClassName("filterDiv");
-        if (c == "all") c = "";
+        
+        // Remove the "active" class from all buttons
+        var btns = document.getElementById("BtnFilter").getElementsByClassName("btn");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].classList.remove("active");
+        }
+        
+        // Add the "active" class to the clicked button
+        var clickedBtn = document.querySelector('[onclick="filterSelection(' + c + ')"]');
+        if (clickedBtn) {
+            clickedBtn.classList.add("active");
+        }
+
+        if (c == "all") {
+            c = "";
+        }
+
         for (i = 0; i < x.length; i++) {
             w3RemoveClass(x[i], "show");
-            if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+            if (c === "" || x[i].className.indexOf(c) > -1) {
+                w3AddClass(x[i], "show");
+            }
         }
     }
 
@@ -67,16 +86,5 @@
             }
         }
         element.className = arr1.join(" ");
-    }
-
-    // Add active class to the current button (highlight it)
-    var btnContainer = document.getElementById("BtnFilter");
-    var btns = btnContainer.getElementsByClassName("btn");
-    for (var i = 0; i < btns.length; i++) {
-        btns[i].addEventListener("click", function() {
-            var current = document.getElementsByClassName("active");
-            current[0].className = current[0].className.replace(" active", "");
-            this.className += " active";
-        });
     }
 </script>

@@ -44,7 +44,7 @@
                     Data Produk belum Tersedia.
                 </div>
                 <div class="card h-100">
-                    <a href="{{ url('produk', $data->id) }}" class="text-decoration-none text-black">
+                    <a href="" class="text-decoration-none text-black">
                     <!-- Product image-->
                     <img class="card-img-top" src="{{ asset('template/img/no-image-produk.jpg') }}" alt="" />
                     <!-- Product details-->

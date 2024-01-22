@@ -7,7 +7,7 @@
         <div class="d-flex flex-wrap justify-content-center" id="BtnFilter">
             <button type="button" class="btn active m-2 text-dark" onclick="filterSelection('all')">All</button>
             @foreach ($kategori as $kate)
-            <button type="button" class="btn m-2 text-dark" onclick="filterSelection( {{$kate->id}} )">{{ $kate->name }} </button>
+                <button type="button" class="btn m-2 text-dark" onclick="filterSelection('{{ $kate->id }}')">{{ $kate->name }}</button>
             @endforeach
         </div>
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center mt-2">

@@ -39,27 +39,23 @@
 
     function filterSelection(c) {
         var x, i;
-        x = document.getElementsByClassName("filterDiv");
-        
+
         // Remove the "active" class from all buttons
         var btns = document.getElementById("BtnFilter").getElementsByClassName("btn");
         for (var i = 0; i < btns.length; i++) {
             btns[i].classList.remove("active");
         }
-        
+
         // Add the "active" class to the clicked button
-        var clickedBtn = document.querySelector('[onclick="filterSelection(' + c + ')"]');
+        var clickedBtn = document.querySelector('[onclick="filterSelection(\'' + c + '\')"]');
         if (clickedBtn) {
             clickedBtn.classList.add("active");
         }
 
-        if (c == "all") {
-            c = "";
-        }
-
+        x = document.getElementsByClassName("filterDiv");
         for (i = 0; i < x.length; i++) {
             w3RemoveClass(x[i], "show");
-            if (c === "" || x[i].className.indexOf(c) > -1) {
+            if (c === "all" || x[i].className.indexOf(c) > -1) {
                 w3AddClass(x[i], "show");
             }
         }

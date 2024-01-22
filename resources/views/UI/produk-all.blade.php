@@ -5,10 +5,12 @@
     <div class="container px-4 px-lg-5 pt-5">
         <div class="row justify-content-center">
             <p class="text-center ">
-                <button href="" class="btn active m-2 text-dark" onclick="filterSelection('all')"> Semua Produk </button>
-                @foreach ($kategori as $kate)
-                <button href="" class="btn m-2 text-dark" onclick="filterSelection( {{$kate->id}} )"> {{ $kate->name }} </button>
-                @endforeach
+                <div class="d-flex flex-wrap justify-content-center" id="BtnFilter">
+                    <button type="button" class="btn active m-2 text-dark" onclick="filterSelection('all')">All</button>
+                    @foreach ($kategori as $kate)
+                        <button type="button" class="btn m-2 text-dark" onclick="filterSelection('{{ $kate->id }}')">{{ $kate->name }}</button>
+                    @endforeach
+                </div>
             </p>
         </div>
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center mt-2">

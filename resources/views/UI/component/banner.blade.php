@@ -25,19 +25,8 @@
       </div>
   @else
       <!-- Display a default carousel item with a message for empty data -->
-      <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="{{ asset('/template/img/no-banner-image.jpg') }}" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Default slide label</h5>
-              <p>No carousel items available.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="alert alert-warning text-center">
+      No banner images available.
+    </div>
   @endif
 </div>

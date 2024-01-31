@@ -8,7 +8,7 @@
     <div class="search-bar">
             <form class="search-form d-flex align-items-center" action="{{ url('cari') }}" method="GET">
             @csrf
-                <input type="text" name="cari" placeholder="Search" title="Cari Produk" value="{{ old('cari') }}" >
+                <input type="text" name="cari" placeholder="Search" title="Cari Produk" value="{{ isset($kata_kunci) ? implode(' ', $kata_kunci) : old('cari') }}" >
                 <button type="submit" title="Search"><i class="bi bi-search"></i></button>
             </form>
     </div><!-- End Search Bar -->

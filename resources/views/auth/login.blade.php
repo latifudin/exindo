@@ -35,23 +35,23 @@
                             </button>
                         </div>
 
-                        <div class="form-link">
+                        {{-- <div class="form-link">
                             @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
-                        </div>
+                        </div> --}}
 
                     </form>
 
-                    <div class="form-link">
+                    {{-- <div class="form-link">
                         <span>Don't have an account?
                             @if (Route::has('register'))
                             <a href="{{route('register')}}" class="link signup-link">Signup</a>
                             @endif
                         </span>
-                    </div>
+                    </div> --}}
                 </div>
 
             </div>

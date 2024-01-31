@@ -89,7 +89,7 @@
                     <td>{{ $data->Deskripsi }}</td>
                     <td>
                       <form onsubmit="return confirm('Apakah Anda Yakin ?');" action="{{ route('carousel.destroy', $data->id) }}" method="POST">
-                        <a href="{{ route('carousel.show', $data->id) }}" class="btn btn-sm btn-primary"><i class="ri-eye-line"></i></a>
+                        {{-- <a href="{{ route('carousel.show', $data->id) }}" class="btn btn-sm btn-primary"><i class="ri-eye-line"></i></a> --}}
                         <a href="{{ route('carousel.edit', $data->id) }}" class="btn btn-sm btn-warning"><i class="bi bi-pencil-square"></i></a>
                         @csrf
                         @method('DELETE')

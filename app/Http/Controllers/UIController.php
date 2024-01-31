@@ -64,43 +64,49 @@ class UIController extends Controller
 
     public function cari1(Request $request)
     {
-        // menangkap data pencarian
-        $cari = $request->cari;
+    // Menangkap data pencarian
+    $cari = $request->cari;
 
-        // mengambil data
-        $produk = Produk::where('judul', 'like', "%" . $cari . "%")
-            ->paginate();
-        $kategori   = Kategori::all();
-        $tampilan   = Setting::where('id', '1')
-            ->get();
+    // Memisahkan kata kunci menjadi array
+    $kata_kunci = explode(' ', $cari);
 
-        // mengirim data
-        return view('UI.index', compact([
-            'kategori',
-            'produk',
-            'tampilan',
-        ]));
+    // Mengambil data dengan pencarian
+    $produkQuery = Produk::query();
+    foreach ($kata_kunci as $kunci) {
+        $produkQuery->where('judul', 'like', "%$kunci%");
     }
+    $produk = $produkQuery->paginate();
+
+    $kategori = Kategori::all();
+    $tampilan = Setting::where('id', '1')->get();
+
+    // Mengirim data
+    return view('UI.index', compact('kategori', 'produk', 'tampilan', 'kata_kunci'));
+    }
+
 
     public function cari2(Request $request)
     {
-        // menangkap data pencarian
-        $cari = $request->cari;
+    // Menangkap data pencarian
+    $cari = $request->cari;
 
-        // mengambil data
-        $produk = Produk::where('judul', 'like', "%" . $cari . "%")
-            ->paginate();
-        $kategori   = Kategori::all();
-        $tampilan   = Setting::where('id', '1')
-            ->get();
+    // Memisahkan kata kunci menjadi array
+    $kata_kunci = explode(' ', $cari);
 
-        // mengirim data
-        return view('UI.produk-all', compact([
-            'kategori',
-            'produk',
-            'tampilan',
-        ]));
+    // Mengambil data dengan pencarian
+    $produkQuery = Produk::query();
+    foreach ($kata_kunci as $kunci) {
+        $produkQuery->where('judul', 'like', "%$kunci%");
     }
+    $produk = $produkQuery->paginate();
+
+    $kategori = Kategori::all();
+    $tampilan = Setting::where('id', '1')->get();
+
+    // Mengirim data
+    return view('UI.index', compact('kategori', 'produk', 'tampilan', 'kata_kunci'));
+    }
+
 
     public function bantu(): View
     {
